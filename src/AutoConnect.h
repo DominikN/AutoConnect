@@ -24,7 +24,8 @@ using WebServerClass = ESP8266WebServer;
 #elif defined(ARDUINO_ARCH_ESP32)
 #include <WiFi.h>
 #include <WebServer.h>
-using WebServerClass = WebServer;
+#include <Husarnet.h>
+using WebServerClass = HusarnetServer;
 #endif
 #include <EEPROM.h>
 #include <PageBuilder.h>
@@ -461,7 +462,7 @@ class AutoConnect {
 #if defined(ARDUINO_ARCH_ESP8266)
   friend ESP8266WebServer;
 #elif defined(ARDUINO_ARCH_ESP32)
-  friend class WebServer;
+  friend class HusarnetServer;
 #endif
 
   friend class AutoConnectAux;
